@@ -1,5 +1,5 @@
 # Model API
-![](https://img.shields.io/github/package-json/v/LvFarias/model-api/main?style=flat-square)
+![](https://img.shields.io/github/package-json/v/LvFarias/model-api/master?style=flat-square)
 ![](https://img.shields.io/github/license/LvFarias/model-api?style=flat-square)
 ![](https://img.shields.io/github/repo-size/LvFarias/model-api?style=flat-square)
 ![](https://img.shields.io/github/issues/LvFarias/model-api?style=flat-square)
@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/issues-pr/LvFarias/model-api?style=flat-square)
 ![](https://img.shields.io/github/contributors/LvFarias/model-api?style=flat-square)
 ![](https://img.shields.io/github/commit-activity/m/LvFarias/model-api?style=flat-square)
-![](https://img.shields.io/github/last-commit/LvFarias/model-api/main?style=flat-square)
+![](https://img.shields.io/github/last-commit/LvFarias/model-api/master?style=flat-square)
 ![](https://img.shields.io/github/forks/LvFarias/model-api?style=social)
 ![](https://img.shields.io/github/stars/LvFarias/model-api?style=social)
 ![](https://img.shields.io/github/watchers/LvFarias/model-api?style=social)
