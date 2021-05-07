@@ -27,6 +27,8 @@
 
 ## Description
 
+Template for basic API for sites with Universal Angular and CMS management.
+
 ## Getting Started
 
 Install dependences:
