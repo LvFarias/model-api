@@ -10,9 +10,9 @@
     "create-db": "npx sequelize db:drop && npx sequelize db:create",
     "init-db": "npm run create-db && npm run migrate && npm run seed",
     "init-db-docker": "docker-compose -f docker-compose.local.yaml up -d --build && npm run init-db",
-    "local": "nodemon ./bin/api",
+    "local": "DEBUG=Model-API:* nodemon ./bin/api",
     "stage": "docker-compose up -d --build",
-    "prod": "node ./bin/api"
+    "prod": "DEBUG=Model-API:* node ./bin/api"
   },
   "repository": {
     "type": "git",
