@@ -12,7 +12,7 @@
     "init-db-docker": "docker-compose -f docker-compose.local.yaml up -d --build && npm run init-db",
     "local": "DEBUG=Model-API:* nodemon ./bin/api",
     "stage": "docker-compose up -d --build",
-    "prod": "DEBUG=Model-API:* node ./bin/api"
+    "prod": "npm run init-db && DEBUG=Model-API:* node ./bin/api"
   },
   "repository": {
     "type": "git",
