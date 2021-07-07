@@ -9,13 +9,14 @@ module.exports = {
     }, ['id']);
 
     if (!user) {
-    await queryInterface.bulkInsert('Sites', [{
-      user_id: user.id,
-      name: 'Modelo',
-      route: 'whimsinc.com.br',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+      await queryInterface.bulkInsert('Sites', [{
+        user_id: user.id,
+        name: 'Modelo',
+        route: 'whimsinc.com.br',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }], {});
+    }
   },
 
   down: async (queryInterface, Sequelize) => {
