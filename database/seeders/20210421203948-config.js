@@ -2,17 +2,25 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('Configs', [{
-      site_id: 1,
-      primary_color: '#007fb1',
-      primary_secondary: '#007fb1',
-      primary_tertiary: '#007fb1',
-      primary_mygray: '#fc0fc0',
-      primary_actions: '#007fb1',
-      font_family: 'Krub',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+    const site = await queryInterface.rawSelect('Sites', {
+      where: {
+        route: 'whimsinc.com.br',
+      },
+    }, ['id']);
+
+    if(!site) {
+      await queryInterface.bulkInsert('Configs', [{
+        site_id: site.id,
+        primary_color: '#007fb1',
+        primary_secondary: '#007fb1',
+        primary_tertiary: '#007fb1',
+        primary_mygray: '#fc0fc0',
+        primary_actions: '#007fb1',
+        font_family: 'Krub',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }], {});
+    }
   },
 
   down: async (queryInterface, Sequelize) => {
