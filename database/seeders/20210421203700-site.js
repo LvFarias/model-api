@@ -5,7 +5,7 @@ module.exports = {
     await queryInterface.bulkInsert('Sites', [{
       user_id: 1,
       name: 'Modelo',
-      route: 'localhost:4200',
+      route: 'whimsinc.com.br',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

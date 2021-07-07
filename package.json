@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "seed": "npx sequelize db:seed:all",
+    "seed:undo": "npx sequelize db:seed:undo:all",
     "migrate": "npx sequelize db:migrate",
     "migrate:undo": "npx sequelize db:migrate:undo:all",
     "create-db": "npx sequelize db:drop && npx sequelize db:create",
