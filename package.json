@@ -9,6 +9,7 @@
     "migrate": "npx sequelize db:migrate",
     "migrate:undo": "npx sequelize db:migrate:undo:all",
     "create-db": "npx sequelize db:drop && npx sequelize db:create",
+    "reset-db": "npm run seed:undo && npm run migrate:undo && npm run migrate && npm run seed",
     "init-db": "npm run create-db && npm run migrate && npm run seed",
     "init-db-docker": "docker-compose -f docker-compose.local.yaml up -d --build && npm run init-db",
     "local": "DEBUG=Model-API:* nodemon ./bin/api",
