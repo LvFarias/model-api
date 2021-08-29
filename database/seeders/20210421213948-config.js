@@ -24,6 +24,7 @@ module.exports = {
             { network: 'facebook', link: 'https://www.facebook.com/Cahmimoss2/' },
             { network: 'whatsapp', link: 'https://wa.me/5511961905462?text=Ol%C3%A1%2C+eu+quero+fazer+um+pedido.' },
           ]),
+          logo: 'https://res.cloudinary.com/whims-inc/image/upload/v1626826707/CahMimos/logo.png',
           tel: '(11) 9.6190-5462',
           email: 'cahmimoss2@outlook.com',
           city: 'São Paulo',

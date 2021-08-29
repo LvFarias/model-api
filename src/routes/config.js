@@ -17,6 +17,26 @@ router.get('/all', site.setOrigin, async (req, res, next) => {
     return req.error('configs_not_exist');
 });
 
+router.get('/site/:siteId', async (req, res, next) => {
+    const config = await configService.getById(req.params.siteId).catch(logger.error);
+
+    if (!!config) {
+        return req.success(config);
+    }
+    
+    return req.error('config_not_found', '', 404);
+});
+
+router.put('/site/:siteId', async (req, res, next) => {
+    const config = await configService.edit(req.params.siteId, req.body).catch(logger.error);
+
+    if (!!config) {
+        return req.success(config);
+    }
+    
+    return req.error('config_not_found', '', 404);
+});
+
 router.get('/:config', site.setOrigin, async (req, res, next) => {
     const config = await configService.getByAlias(req.Site.id, req.params.config).catch(logger.error);
 

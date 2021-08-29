@@ -15,6 +15,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       socialList: {
+        type: Sequelize.TEXT
+      },
+      logo: {
         type: Sequelize.STRING
       },
       tel: {
