@@ -11,18 +11,27 @@ module.exports = (sequelize, DataTypes) => {
     alias: DataTypes.STRING,
     route: DataTypes.STRING,
     title: DataTypes.STRING,
-    modules: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Pages',
   });
 
   Pages.associate = (models) => {
-    const { Sites } = models;
+    const { Sites, Modules, Configs } = models;
 
     Pages.belongsTo(
       Sites,
       { foreignKey: 'site_id', onDelete: 'CASCADE' }
+    );
+
+    Pages.hasMany(
+      Modules,
+      { foreignKey: 'page_id', onDelete: 'CASCADE' }
+    );
+
+    Pages.hasMany(
+      Configs,
+      { foreignKey: 'page_id', onDelete: 'CASCADE' }
     );
   };
   

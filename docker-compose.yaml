@@ -14,7 +14,7 @@ services:
       - '63332:5432'
     volumes:
       - ./docker_db:/var/lib/postgresql/data
-      model_api:
+  model_api:
     build: .
     ports:
       - 63274:63274

@@ -5,6 +5,8 @@ const { configService, pageService } = require('../services');
 
 const router = express.Router();
 
+router.use(express.json());
+
 router.get('/all', site.setOrigin, async (req, res, next) => {
     const configs = await configService.getAll(req.Site.id).catch(logger.error);
 

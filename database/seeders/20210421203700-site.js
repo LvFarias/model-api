@@ -4,15 +4,15 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const user = await queryInterface.rawSelect('Users', {
       where: {
-        email: 'luan.vfarias@gmail.com',
+        email: 'cahmimos@outlook.com',
       },
     }, ['id']);
 
-    if (!user) {
+    if (!!user) {
       await queryInterface.bulkInsert('Sites', [{
-        user_id: user.id,
-        name: 'Modelo',
-        route: 'whimsinc.com.br',
+        user_id: user,
+        name: 'CahMimos',
+        route: 'cahmimospresentes.com.br',
         createdAt: new Date(),
         updatedAt: new Date(),
       }], {});

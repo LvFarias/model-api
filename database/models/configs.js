@@ -7,23 +7,29 @@ module.exports = (sequelize, DataTypes) => {
 
   Configs.init({
     site_id: DataTypes.INTEGER,
-    primary_color: DataTypes.STRING,
-    primary_secondary: DataTypes.STRING,
-    primary_tertiary: DataTypes.STRING,
-    primary_mygray: DataTypes.STRING,
-    primary_actions: DataTypes.STRING,
-    font_family: DataTypes.STRING,
+    page_id: DataTypes.INTEGER,
+    socialList: DataTypes.TEXT,
+    tel: DataTypes.STRING,
+    email: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    deliveryInfo: DataTypes.STRING,
+    schedules: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'Configs',
   });
 
   Configs.associate = (models) => {
-    const { Sites } = models;
+    const { Sites, Pages } = models;
 
     Configs.belongsTo(
       Sites,
       { foreignKey: 'site_id', onDelete: 'CASCADE'  }
+    );
+    Configs.belongsTo(
+      Pages,
+      { foreignKey: 'page_id', onDelete: 'CASCADE'  }
     );
   };
 

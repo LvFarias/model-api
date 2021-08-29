@@ -1,13 +1,25 @@
 'use strict';
 
+const { jwt } = require("../../src/libs");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Users', [{
       name: 'Luan Vasco',
       avatar: 'asasa',
       email: 'luan.vfarias@gmail.com',
-      password: '',
+      password: jwt.bashPassword('Teste123'),
       token: '',
+      type: 'admin',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }, {
+      name: 'Carolina Farias',
+      avatar: 'asasa',
+      email: 'cahmimos@outlook.com',
+      password: jwt.bashPassword('CahMimos@2021'),
+      token: '',
+      type: 'client',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

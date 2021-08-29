@@ -11,23 +11,29 @@ module.exports = {
       site_id: {
         type: Sequelize.INTEGER
       },
-      primary_color: {
+      page_id: {
+        type: Sequelize.INTEGER
+      },
+      socialList: {
         type: Sequelize.STRING
       },
-      primary_secondary: {
+      tel: {
         type: Sequelize.STRING
       },
-      primary_tertiary: {
+      email: {
         type: Sequelize.STRING
       },
-      primary_mygray: {
+      city: {
         type: Sequelize.STRING
       },
-      primary_actions: {
+      state: {
         type: Sequelize.STRING
       },
-      font_family: {
+      deliveryInfo: {
         type: Sequelize.STRING
+      },
+      schedules: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

@@ -2,15 +2,18 @@ const express = require('express');
 
 const models = require('../../database/models');
 const { jwt, logger, email } = require('../libs');
+const { userService, siteService } = require('../services');
 
 const router = express.Router();
+
+router.use(express.json());
 
 router.get('/', async (req, res, next) => {
   return req.success();
 });
 
 router.post('/forgot-password', async (req, res, next) => {
-  const user = await models.Users.findOne({ where: { email: req.body.email } }).catch(logger.error);
+  const user = await userService.getByEmail(req.body.email, true).catch(logger.error);
 
   if (user) {
     const token = user.password;
@@ -26,7 +29,7 @@ router.post('/forgot-password', async (req, res, next) => {
 });
 
 router.get('/reset-password', async (req, res, next) => {
-  const user = await models.Users.findOne({ where: { email: req.params.email } }).catch(logger.error);
+  const user = await userService.getByEmail(req.params.email, true).catch(logger.error);
 
   if (user) {
     const passwordMath = await jwt.comparePassword(user.password, req.params.token).catch(logger.error);
@@ -49,7 +52,7 @@ router.post('/reset-password', async (req, res, next) => {
     return req.error('invalid_params');
   }
   
-  const user = await models.Users.findOne({ where: { email: req.body.email } }).catch(logger.error);
+  const user = await userService.getByEmail(req.body.email, true).catch(logger.error);
 
   if (user) {
     const passwordMath = await jwt.comparePassword(user.password, req.body.token).catch(logger.error);
@@ -65,14 +68,19 @@ router.post('/reset-password', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
-  const user = await models.Users.findOne({ where: { email: req.body.email } }).catch(logger.error);
+  const user = await userService.getByEmail(req.body.email, true).catch(logger.error);
 
   if (user) {
-    const passwordMath = await jwt.comparePassword(user.password, req.body.password).catch((e) => { logger.error('error2', e) });
+    const passwordMath = await jwt.comparePassword(user.password, req.body.password).catch(logger.error);
     
     if (passwordMath) {
-      user.dataValues.token = jwt.createUserToken(user.id);
+      delete user.dataValues.password;
       
+      const site = await siteService.getByUser(user.id).catch(logger.error);
+      
+      user.dataValues.token = jwt.createUserToken(user.id);
+      user.dataValues.siteId = site ? site.id : null;
+
       return req.success(user);
     }
   }
