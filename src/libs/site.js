@@ -3,7 +3,8 @@ const { siteService } = require('../services');
 
 async function setOrigin(req, res, next) {
     const origin = res.req.headers.origin;
-    const route = origin.split('://')[1];
+    let route = origin.split('://')[1];
+    route = route.replaceAll('www.', '');
     req.Site = await siteService.getByRoute(route).catch(logger.error);
 
     if (!!req.Site) {
