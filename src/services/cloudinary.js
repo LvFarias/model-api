@@ -12,7 +12,7 @@ const uploadImage = async (file, fileName, folder) => {
         };
 
         cloudinary.uploader.upload(file, options, (error, result) => {
-            if (error) rej(error);
+            if (error || !result) return rej(error);
 
             res(result.url);
         });
