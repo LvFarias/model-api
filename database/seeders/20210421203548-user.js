@@ -13,19 +13,10 @@ module.exports = {
       type: 'admin',
       createdAt: new Date(),
       updatedAt: new Date(),
-    }, {
-      name: 'Carolina Farias',
-      avatar: 'asasa',
-      email: 'cahmimos@outlook.com',
-      password: jwt.bashPassword('CahMimos@2021'),
-      token: '',
-      type: 'client',
-      createdAt: new Date(),
-      updatedAt: new Date(),
     }], {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('Users', { email: 'luan.vfarias@gmail.com' }, {});
   }
 };
