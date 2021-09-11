@@ -110,7 +110,7 @@ module.exports = {
               site_id: site,
               page_id: page,
               alias: 'catalogo',
-              type: 'list',
+              type: 'products',
               title: 'Catálogo',
               data: JSON.stringify({
                 action: 'https://wa.me/5511961905462?text=Ol%C3%A1%2C+eu+quero+fazer+um+pedido.',
