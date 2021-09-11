@@ -48,9 +48,11 @@ const getByRoute = async (route, all = false) => {
     });
 };
 
-const listAll = async (page = 1, limit = 10) => {
+const listAll = async (page = 1, limit = 10, user_id = null) => {
     return new Promise(async (res, rej) => {
-        const list = await Sites.findAndCountAll({ limit, offset: (page - 1) * limit });
+        const where = {};
+        if (!!user_id) where.user_id = user_id;
+        const list = await Sites.findAndCountAll({ where, limit, offset: (page - 1) * limit });
         res(list);
     });
 };

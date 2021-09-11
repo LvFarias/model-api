@@ -18,7 +18,7 @@ router.get('/:id', jwt.isAuthorized, async (req, res, next) => {
 });
 
 router.get('/', jwt.isAuthorized, async (req, res, next) => {
-    const list = await siteService.listAll(req.query.page, req.query.limit).catch(logger.error);
+    const list = await siteService.listAll(req.query.page, req.query.limit, req.UserId).catch(logger.error);
 
     return req.success(list);
 });
