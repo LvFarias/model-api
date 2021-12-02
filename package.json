@@ -11,7 +11,7 @@
     "create-db": "npx sequelize db:drop && npx sequelize db:create",
     "reset-db": "npm run seed:undo && npm run migrate:undo && npm run migrate && npm run seed",
     "init-db": "npm run create-db && npm run migrate && npm run seed",
-    "init-db-docker": "docker-compose -f docker-compose.local.yaml up -d --build && npm run init-db",
+    "db-docker": "docker-compose -f docker-compose.local.yaml up -d --build",
     "local": "DEBUG=Model-API:* nodemon ./bin/api",
     "stage": "docker-compose up -d --build",
     "prod": "DEBUG=Model-API:* node ./bin/api"
